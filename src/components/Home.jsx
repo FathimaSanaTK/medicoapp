@@ -116,7 +116,11 @@ function Home() {
       {/* Navigation Bar */}
       <MDBNavbar expand='lg' light bgColor='light'>
         <MDBContainer fluid>
-          <MDBNavbarBrand href='#'>Brand</MDBNavbarBrand>
+          {/* <MDBNavbarBrand href='#'>MediCo</MDBNavbarBrand> */}
+          <MDBNavbarBrand href='#'>
+  <span style={{ color: 'blue' }}>Medi</span>
+  <span style={{ color: 'red' }}>Co</span>
+</MDBNavbarBrand>
 
           <MDBNavbarToggler
             aria-controls='navbarSupportedContent'
