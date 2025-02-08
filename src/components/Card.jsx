@@ -1,29 +1,39 @@
-import React from 'react'
-import {
-    MDBCard,
-    MDBCardBody,
-    MDBCardTitle,
-    MDBCardText,
-    MDBCardImage,
-    MDBBtn
-  } from 'mdb-react-ui-kit';
-  
 
-function Card() {
+import React from 'react';
+import {
+  MDBCard,
+  MDBCardBody,
+  MDBCardTitle,
+  MDBCardText,
+  MDBCardImage,
+  MDBBtn
+} from 'mdb-react-ui-kit';
+import './card.css';  // Import CSS file
+
+function Card({ details }) {
   return (
-    <div>
-        <MDBCard>
-      <MDBCardImage src='https://mdbootstrap.com/img/new/standard/nature/184.webp' position='top' width={200} height={200} alt='...' />
-      <MDBCardBody>
-        <MDBCardTitle>Card title</MDBCardTitle>
-        <MDBCardText>
-          Some quick example text to build on the card title and make up the bulk of the card's content.
-        </MDBCardText>
-        <MDBBtn href='#'>Button</MDBBtn>
-      </MDBCardBody>
-    </MDBCard>
+    <div className="card-container">
+      {details.length > 0 ? (
+        details.map((item, index) => (
+          <MDBCard key={index} className="mdb-card">
+            <MDBCardImage src={item.image_url} position="top" alt="Product Image" />
+            <MDBCardBody className="mdb-card-body">
+              <MDBCardTitle className="mdb-card-title">{item.name}</MDBCardTitle>
+              <MDBCardText className="mdb-card-text">
+                {item.rating}★ ({item.reviews})
+              </MDBCardText>
+              <MDBCardText className="mdb-card-text">
+                {item.price} <del>{item.original_price}</del> {item.discount}
+              </MDBCardText>
+              <MDBBtn href="#" className="mdb-btn">Buy Now</MDBBtn>  <MDBBtn> <i class="fa-solid fa-cart-shopping"></i></MDBBtn>
+            </MDBCardBody>
+          </MDBCard>
+        ))
+      ) : (
+        <p>No details to display</p>
+      )}
     </div>
-  )
+  );
 }
 
-export default Card
+export default Card;
