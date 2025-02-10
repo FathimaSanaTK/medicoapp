@@ -11,6 +11,11 @@ import {
 import './card.css';  // Import CSS file
 
 function Card({ details }) {
+
+  const handleClick = () => {
+    alert("This feature is loading soon");
+  };
+
   return (
     <div className="card-container">
       {details.length > 0 ? (
@@ -25,7 +30,7 @@ function Card({ details }) {
               <MDBCardText className="mdb-card-text">
                 {item.price} <del>{item.original_price}</del> {item.discount}
               </MDBCardText>
-              <MDBBtn href="#" className="mdb-btn">Buy Now</MDBBtn>  <MDBBtn> <i class="fa-solid fa-cart-shopping"></i></MDBBtn>
+              <MDBBtn href="#" className="mdb-btn" onClick={handleClick}>Buy Now</MDBBtn>  <MDBBtn onClick={handleClick}> <i class="fa-solid fa-cart-shopping"></i></MDBBtn>
             </MDBCardBody>
           </MDBCard>
         ))
